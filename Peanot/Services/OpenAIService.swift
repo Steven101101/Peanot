@@ -8,7 +8,7 @@
 import Foundation
 
 struct OpenAIService {
-    private let apiKey = ""
+    private let apiKey = Secrets.openAIAPIKey
 
     func generate(prompt: String) async throws -> String {
         let url = URL(

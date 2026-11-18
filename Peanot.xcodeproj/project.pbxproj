@@ -7,12 +7,27 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		281A8F5A30AE52940098229B /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		281A8F5B30AE52940098229B /* Secrets.example.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.example.xcconfig; sourceTree = "<group>"; };
 		28ADBC3D308B29B4005B3F0E /* Peanot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Peanot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		281A8F5D30AE53CB0098229B /* Exceptions for "Peanot" folder in "Peanot" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 28ADBC3C308B29B4005B3F0E /* Peanot */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		28ADBC3F308B29B4005B3F0E /* Peanot */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				281A8F5D30AE53CB0098229B /* Exceptions for "Peanot" folder in "Peanot" target */,
+			);
 			path = Peanot;
 			sourceTree = "<group>";
 		};
@@ -34,6 +49,8 @@
 			children = (
 				28ADBC3F308B29B4005B3F0E /* Peanot */,
 				28ADBC3E308B29B4005B3F0E /* Products */,
+				281A8F5A30AE52940098229B /* Secrets.xcconfig */,
+				281A8F5B30AE52940098229B /* Secrets.example.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +144,7 @@
 /* Begin XCBuildConfiguration section */
 		28ADBC46308B29B5005B3F0E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 281A8F5A30AE52940098229B /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -191,6 +209,7 @@
 		};
 		28ADBC47308B29B5005B3F0E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 281A8F5A30AE52940098229B /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -257,6 +276,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Peanot/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Peanot uses your camera to scan product barcodes and ingredient labels.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -292,6 +312,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Peanot/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Peanot uses your camera to scan product barcodes and ingredient labels.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -8,8 +8,8 @@
 import Foundation
 
 struct ProductSearch {
-    private let appId = ""
-    private let appKey = ""
+    private let appId = Secrets.edamamAppID
+    private let appKey = Secrets.edamamAppKey
 
     func fetchProduct(barcode: String) async throws -> Data {
         try await fetch(query: URLQueryItem(name: "upc", value: barcode))
