@@ -9,9 +9,13 @@ import SwiftUI
 import SwiftData
 
 struct HomeView: View {
-    @AppStorage("userName") private var userName = "Steven"
+    @AppStorage("userName") private var userName = ""
     @State private var selectedAllergens = AllergenPreferences.load()
     @Environment(\.modelContext) private var context
+    
+    private var greeting: String {
+        userName.isEmpty ? "What are we checking?" : "What are we checking, \(userName)?"
+    }
 
     var body: some View {
         NavigationStack {
@@ -29,13 +33,13 @@ struct HomeView: View {
                             .fill(PeanotColors.selected)
                             .frame(width: 44, height: 44)
                             .overlay {
-                                Text(String(userName.first ?? "S").uppercased())
+                                Text(userName.isEmpty ? "U" : String(userName.first!).uppercased())
                                     .font(PeanotTypography.headline)
                                     .foregroundStyle(PeanotColors.primary)
                             }
                     }
 
-                    Text("What are we checking, \(userName)?")
+                    Text(greeting)
                         .font(PeanotTypography.largeTitle)
                         .foregroundStyle(PeanotColors.text)
                         .fixedSize(horizontal: false, vertical: true)
@@ -98,6 +102,7 @@ struct HomeView: View {
                 // TODO: Temporary
                 Button("Reset Onboarding") {
                     UserDefaults.standard.removeObject(forKey: AllergenPreferences.key)
+                    UserDefaults.standard.removeObject(forKey: UserPreferences.nameKey)
                     UserDefaults.standard.set(false, forKey: "hasCompletedOnboarding")
                     selectedAllergens = []
                     ScanHistory.clear(in: context)

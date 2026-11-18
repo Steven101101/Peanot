@@ -12,9 +12,10 @@ struct OnboardingView: View {
     private var hasCompletedOnboarding = false
 
     @State private var step = 0
+    @State private var name: String = ""
     @State private var selectedAllergens: Set<String> = []
 
-    private let totalSteps = 3
+    private let totalSteps = 4
 
     var body: some View {
         VStack(spacing: 24) {
@@ -32,6 +33,10 @@ struct OnboardingView: View {
                         step += 1
                     }
                 case 1:
+                    NameEntryView(name: $name) {
+                        step += 1
+                    }
+                case 2:
                     AllergenSelectionView (
                         selectedAllergens: $selectedAllergens
                     ) {
@@ -58,6 +63,7 @@ struct OnboardingView: View {
     }
 
     private func finishOnboarding() {
+        UserPreferences.save(name: name)
         AllergenPreferences.save(selectedAllergens)
         hasCompletedOnboarding = true
     }
