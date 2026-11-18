@@ -1,0 +1,55 @@
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode user-specific settings
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+
+# Xcode build outputs
+build/
+DerivedData/
+*.ipa
+*.dSYM
+*.dSYM.zip
+
+# Xcode temporary files
+*.hmap
+*.ipa
+*.swiftdoc
+*.swiftmodule
+*.swiftsourceinfo
+
+# Swift Package Manager
+.build/
+.swiftpm/xcode/package.xcworkspace/xcuserdata/
+
+# Keep Package.resolved tracked for reproducible builds
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Temporary files
+*.swp
+*.swo
+*~
+*.tmp
+
+# Secrets and environment variables
+.env
+.env.*
+!.env.example
+Secrets.xcconfig
+*.p8
+
+# Fastlane (if used)
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+
