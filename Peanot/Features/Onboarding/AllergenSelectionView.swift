@@ -60,6 +60,7 @@ struct AllergenSelectionView: View {
                 dismiss()
             }
             .buttonStyle(PeanotPrimaryButtonStyle())
+            .disabled(selectedAllergens.isEmpty)
             .frame(maxWidth: .infinity)
             .padding(.top, PeanotSpacing.md)
         }
@@ -104,7 +105,6 @@ struct AllergenSelectionView: View {
 
     // MARK: - Helpers
 
-    /// Selected allergens that aren't part of the FDA top 9, newest-sorted for a stable list.
     private var customAllergens: [String] {
         let standard = Set(Allergen.allCases.map(\.rawValue))
         return selectedAllergens.filter { !standard.contains($0) }.sorted()
@@ -123,7 +123,6 @@ struct AllergenSelectionView: View {
     private func addCustomAllergen() {
         guard canAddCustomAllergen else { return }
 
-        // Match the casing of a built-in allergen so duplicates can't sneak in.
         let trimmed = trimmedCustomAllergen
         let title = Allergen.allCases
             .first { $0.rawValue.caseInsensitiveCompare(trimmed) == .orderedSame }?
@@ -135,9 +134,9 @@ struct AllergenSelectionView: View {
 
     private var continueTitle: String {
         switch selectedAllergens.count {
-        case 0:  return "Continue"
-        case 1:  return "Continue with 1 allergen"
-        default: return "Continue with \(selectedAllergens.count) allergens"
+            case 0:  return "Please select at least one allergen"
+            case 1:  return "Continue with 1 allergen"
+            default: return "Continue with \(selectedAllergens.count) allergens"
         }
     }
 

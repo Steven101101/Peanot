@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct PeanotPrimaryButtonStyle: ButtonStyle {
+    @Environment(\.isEnabled) private var isEnabled
+    
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(PeanotTypography.headline)
             .foregroundStyle(.white)
             .frame(maxWidth: .infinity)
             .padding(.vertical, PeanotSpacing.md)
-            .background(PeanotColors.primary)
+            .background(isEnabled ? PeanotColors.primary : PeanotColors.primary.opacity(0.4))
             .clipShape(
                 RoundedRectangle(cornerRadius: PeanotRadius.medium)
             )
