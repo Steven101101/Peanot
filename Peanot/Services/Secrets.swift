@@ -8,9 +8,9 @@
 import Foundation
 
 enum Secrets {
-    static let openAIAPIKey = value("OPENAI_API_KEY")
-    static let edamamAppID = value("EDAMAM_APP_ID")
-    static let edamamAppKey = value("EDAMAM_APP_KEY")
+    static let apiBaseURL = "\(value("PEANOT_API_SCHEME"))://\(value("PEANOT_API_HOST"))"
+
+    static let clientToken = value("PEANOT_CLIENT_TOKEN")
 
     private static func value (_ key: String) -> String {
         guard let value = Bundle.main.object(forInfoDictionaryKey: key) as? String, !value.isEmpty
