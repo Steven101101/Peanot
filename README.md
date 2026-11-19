@@ -34,26 +34,27 @@ When analyzing a product, Peanot may transmit the product name, ingredient text,
 
 Clone Peanot to your local machine:
 
-### 2. Configure API credentials
+### 2. Deploy the backend
 
-Create a `Secrets.xcconfig` file using the provided template and add your API credentials:
+Peanot does not talk to OpenAI or Edamam directly. Both calls are proxied
+through a Cloudflare Worker that holds the provider credentials, so no API key is shipped inside the app.
+
+### 3. Configure the API connection
+
+Create a`Secrets.xcconfig` file and fill in your
+Worker's host and client token:
 
 ```
-OPENAI_API_KEY = YOUR_OPENAI_API_KEY
-EDAMAM_APP_ID = YOUR_EDAMAM_APP_ID
-EDAMAM_APP_KEY = YOUR_EDAMAM_APP_KEY
+PEANOT_API_HOST = your-worker.workers.dev
+PEANOT_API_SCHEME = https
+PEANOT_CLIENT_TOKEN = YOUR_CLIENT_TOKEN
 ```
 
-> [!CAUTION]
-> **Keep your API credentials private.**
->
-> Never commit `Secrets.xcconfig` to version control. API keys embedded in an iOS application can be extracted from the compiled app. This configuration is intended for local development only. Production deployments should use a secure backend to handle secret API credentials.
-
-### 3. Open the project in Xcode
+### 4. Open the project in Xcode
 
 Open the Peanot Xcode project and select your development team under **Signing & Capabilities**.
 
-### 4. Build and run
+### 5. Build and run
 
 > [!NOTE]
 > Peanot requires a compatible physical iPhone for its VisionKit camera-scanning functionality.
